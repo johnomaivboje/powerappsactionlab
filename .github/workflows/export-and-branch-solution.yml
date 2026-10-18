@@ -31,7 +31,7 @@ on:
 env:
   #edit your values here
   ENVIRONMENT_URL: 'https://org0e4a3e72.crm17.dynamics.com/'
-  CLIENT_ID: ' fabe4f01-6997-4ed5-8fac-3fa5a7bf0733'
+  CLIENT_ID: 'fabe4f01-6997-4ed5-8fac-3fa5a7bf0733'
   TENANT_ID: '2a786448-4dc0-4299-878f-00e0c3f86d49'
 
 permissions:
