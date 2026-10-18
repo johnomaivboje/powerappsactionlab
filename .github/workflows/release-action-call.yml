@@ -1,0 +1,30 @@
+name: release-action-call
+
+# Run when a GitHub release is published
+on:
+  release:
+    types: [published]
+
+jobs:
+  release-to-production:
+    uses: ./.github/workflows/release-solution-to-prod-with-inputs.yml
+
+    with:
+      # Solution details
+      solution_name: ALMLab
+      solution_shipping_folder: out/ship/
+      solution_outbound_folder: out/solutions/
+      solution_source_folder: solutions/
+      solution_release_folder: out/release/
+
+      # Update these values with your environment details
+      BUILD_ENVIRONMENT_URL: 'https://org079b2f6b.crm17.dynamics.com'
+      PRODUCTION_ENVIRONMENT_URL: 'https://org9a9280e1.crm11.dynamics.com'
+
+      BUILD_CLIENT_ID: 'fabe4f01-6997-4ed5-8fac-3fa5a7bf0733'
+      PRODUCTION_CLIENT_ID: 'fabe4f01-6997-4ed5-8fac-3fa5a7bf0733'
+      TENANT_ID: '2a786448-4dc0-4299-878f-00e0c3f86d49'
+
+    secrets:
+      buildSecret: ${{ secrets.PowerPlatformSPN }}
+      prodSecret: ${{ secrets.PowerPlatformSPN }}
